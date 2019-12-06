@@ -61,7 +61,7 @@ $(function(){
 		$('#sidebar').hide();
 		$('#exitModal,#menuBar,#welcomePage,#mainPage,#aboutPage,#calculatePage,#add').css('display','none');
 		$('#exampleModal').hide();
-		setTimeout('bye()',2000)
+		setTimeout(bye(),2000);
 	})
 })
 bye = () =>{
@@ -150,6 +150,7 @@ count= 1;
 //var ty = [];
  function addItem(){
 	 $('#myModal').modal('hide');
+	 
      all = [];
 	 var c = Math.random();
     var s = Math.floor(c*1000);
@@ -168,21 +169,21 @@ count= 1;
     
          for(var i = 0; i < ar.length;i++){
             ar[i].value = all[i];
-        }      
+		}
+		itemList.value = '';      
 } 
 function clearall(){
     defaltDiv.innerHTML = "";
     showtot.value = "";
 }
-function calc(){
- n = document.getElementsByClassName('allcounters');
- tot = 0;
-   for(var i = 0; i < n.length; i++){
-        if(parseInt(n[i].value)){
-            tot  += parseInt(n[i].value);
-        }
-    }
-  document.getElementById('showtot').value = tot;
+
+calc = () =>{
+	total = 0;
+	var tt = document.getElementsByClassName('allcounters');
+	for (let i = 0; i < tt.length; i++) {
+		 total += Number(tt[i].value);		
+	}
+	showtot.value = total;	
 }
 var addInppt;
 function generalCount(c){
