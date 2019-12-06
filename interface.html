@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="interface.css">
+	<link rel="stylesheet" href="jQuery-Plugin-For-iOS-like-Swipe-To-Delete-swipeTo/src/css/swipeTo.css">
+</head>
+	
+<body>
+ <nav class="shadow-sm mb-5" style="display: none" id="menuBar">
+		<span id="menu"  c lass="fa fa-align-justify shadow-sm text-white"></span>
+		<span id="menu1" class="fa fa-align-justify shadow-sm"></span>
+		<span id="arrow" class="fa fa-arrow-left float-right mr-3 shadow-sm text-white" id="backArrow" onclick="backToMainPage()"></span>
+	</nav>
+	<div id="sidebar" class="shadow-sm">
+		<ul>
+			<li>
+				<a href="#" id="histbtn">HISTORY</a>
+			</li>
+				<li>
+				<a href="#" id="aboutButton">ABOUT</a>
+			</li>				
+				<li>
+				<a href="#">HELP</a>
+			</li>
+			<li>
+					<a href="#" id="exitButton" data-toggle="modal" data-target="#exampleModal">EXIT</a>
+				</li>
+		</ul>
+	</div>
+
+	
+
+
+<!--	This contains the vehicles at default and both the menu bar and also where the items will be dropping-->
+	<div class="container" id="allContainer">
+		<div class="row" style="display: none" id="mainPage">
+			<div class="col-md-12">
+                      <div class="h1 col-md-12 ml-1 text-white mb-3" style="text-align: center">TRAFFIC COUNTER APP</div>
+					<div class="card-header" id="timing" style="color: #fff; background: #02015C !important; border: none">
+					</div>
+				 
+<!--     Car at default Starts here-->
+				 <div id="vehicleDiv" style="width:100%" class="forDel">
+<!--
+				
+-->
+
+ 	<div class="input-group mb-3 rounded mt-5" id="carDiv">
+	<div class="input-group-prepend">
+    <span class="input-group-text fa fa-car-alt p-3 fa-1x text-white" onmouseup="countMe(event)" id="countNume" data-long-press-delay="2000" style="background: #0F0096 !important"> CAR</span>
+  </div>
+  <input type="text" class="form-control p-3 text-white allcounters" type="text" id="inlineCheckbox1" value="0" readonly onmouseup="countMe(event)" id="countNume" data-long-press-delay="2000" style="height: 73px;text-align: center; font-size: 40px;background:#0F0096 !important">
+  <div class="input-group-append">
+    <span class="input-group-text fa fa-minus p-3 fa-1x text-white" onClick="subDef2()" style="background:#0F0096 !important"></span>
+	<span class="input-group-text fa fa-trash p-3 fa-1x text-white trsshBin" id='del' style="background:#C60000 !important"></span>
+  </div>
+		 
+</div>
+	
+	<div class="input-group mb-3 rounded mt-5" id="bikeDiv">
+	<div class="input-group-prepend">
+    <span class="input-group-text fa fa-biking p-3 fa-1x text-white" onmouseup="clickTocount(event)" id="countNume" style="background: #0F0096 !important"> BIKE</span>
+  </div>
+  <input type="text" class="form-control p-3 text-white allcounters" type="text" id="inlineCheckbox2" value="0" readonly onmouseup="clickTocount(event)" id="countNume" data-long-press-delay="2000" style="height: 73px;text-align: center; font-size: 40px;background:#0F0096 !important">
+  <div class="input-group-append">
+    <span class="input-group-text fa fa-minus p-3 fa-1x text-white" onClick="subDef()" style="background:#0F0096 !important"></span>
+	  <span class="input-group-text fa fa-trash p-3 fa-1x text-white trsshBin" id='del1' style="background:#C60000 !important"></span>
+  </div>
+</div>
+      
+				</div>
+				<div style="width:100%" id="defaltDiv"></div>
+				<center>
+				<div class="btn-group mt-5 col-md-6 text-center" role="group" aria-label="Basic example">
+	
+				 <button type="button" class="btn btn-danger btn-lg" onClick="clearall()" id="clearAll">CLEAR COUNTER</button>
+			
+
+					</div>	
+					
+							
+ 	<div class="input-group mb-3 rounded mt-5" id="carDiv">
+	<div class="input-group-prepend">
+    <span class="input-group-text text-white" onclick="calc()" style="background: #A20817 !important;font-size: 20px"> GET TOTAL</span>
+  </div>
+  <input type="text" class="form-control p-3 text-black" type="text" id="showtot" value="0" readonly style="height: 50px;text-align: center; font-size: 40px;background:#fff !important">
+					</div>
+				</center>	
+				
+
+				
+				
+			</div>
+		</div>
+		
+		
+		<!--		This is the welcome Page-->
+		
+		<div class="row" id="welcomePage"> 
+			<div class="col-md-12">
+		  <header class="masthead d-flex">
+    <div class="container text-center my-auto">
+      <h1 class="mb-5 text-white">WELCOME TO</h1>
+      <h3 class="mb-5 text-white">
+        <em>A Free Counting app made for Transport students or any other traffic counting.....</em>
+      </h3>
+	<button class="btn btn-primary" type="button" style="margin-top: 180px; background: none;border:none;outline:none">
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  Loading...
+</button>
+     </div>
+    <div class="overlay"></div>
+  </header>
+				
+		</div>
+		</div>
+		
+		<!--		WElcome Page ends-->
+		
+		
+		<!--		This takes you to Exit Page-->
+		
+		<div class="row" id="exitPage"> 
+			<div class="col-md-12">
+		  <header class="masthead d-flex">
+    <div class="container text-center my-auto">
+      <h1 class="mb-5 text-white">Thank You !</h1>
+    </div>
+    <div class="overlay"></div>
+  </header>
+				
+		</div>
+		</div>
+		
+		<!--		This takes you to exit Page, it ends here-->
+		
+		
+
+<!--		This takes you to about Page, it starts here-->
+		
+		<div class="row" id="aboutPage"> 
+			<div class="col-md-12">
+		  <header class="masthead d-flex">
+    <div class="container text-center my-auto">
+      <h1 class="mb-5 text-white">ABOUT THE APP</h1>
+		<p class="text-white" style="font-size:2em">This is an app made for transport Students in various universities and other purposes as well....</p>
+       </div>
+    <div class="overlay"></div>
+  </header>
+				
+		</div>
+		</div>
+		
+		<!--This takes you to about Page, it ends here-->
+		
+		
+<!-- History page starts here-->
+				
+		<div class="row" id="histPage" style="display: none"> 
+			<div class="col-md-12">
+		  <header class="masthead d-flex">
+			  
+    <div class="container text-center my-auto">
+		<h1 class="text-white mb-5">COUNTER HISTORY</h1>
+        <table class="table table-hover table-bordered">
+  <thead>
+    <tr class="text-white" style="font-size: 20px">
+      <th scope="col">S/N</th>
+      <th scope="col">CATEGORIES</th>
+      <th scope="col">TIME STARTED</th>
+      <th scope="col">TIME ENDED</th>
+		<th scope="col">TOTAL</th>
+<!--		<th scope="col">ACTION</th>-->
+    </tr>
+  </thead>
+			<tbody id="tbody" style="color:#fff; font-size:20px">
+			</tbody>
+		</table>			
+       </div>
+    <div class="overlay"></div>
+  </header>
+				
+		</div>
+		</div>
+		
+<!-- History page ends here-->		
+	</div>
+	
+	
+<!--	Modal Box for Items and their  description Starts Here-->
+	<div class="modal fade" id="myModal" style="font-size: 20px">
+		<div id="scrolle">
+		<div class="modal-dialog modal-md p-3">
+			<div class="modal-content">
+				<div class="modal-header bg-secondary text-white">
+					<h6 class="modal-title">
+						ADD ITEM :
+						</h6>
+					  <button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="input1">ITEM :</label>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><span id="car1" class="fa fa-car-alt"></span></span>
+							</div>
+							<input type="text" class="form-control form-control-sm" id="itemList" list="item1" placeholder="Type in your choice of vehicles">
+							</div>
+<!--						This is where users choose Options for what they want-->
+						<datalist id="item1">
+							<option value="TRUCK">
+							<option value="BUS">
+							<option value="BICYCLE">
+							<option value="TRAILER">
+							<option value="WALKING">
+						    <option value="BIKE">
+						    <option value="CAR">
+						</datalist>
+					</div>
+<!--
+					<div class="form-group">
+						<label for="input1">DESCRIPTION :</label>
+						<input type="text" class="form-control form-control-sm" id="item1">
+					</div>
+					
+-->
+						<div class="form-group" id="chooseAnyIcon">
+						<label for="input1">CHOOSE ANY ICON OF YOUR CHOICE :</label>
+<!--							Icon are been choosed here-->
+							<div>
+							 <ul id="chooseIcons" >
+				  <li><a href=""><button id="car5" class="btn btn-success text-black-50" style="background:none"><span class="text-black-50 fa fa-train setIcon"></span></button></a> Trailer</li>
+				    <li><a href=""><button class="btn btn-success text-black-50" id="car5" style="background:none"><span class="fa fa-walking setIcon"></span></button></a> Walking</li>
+				   <li><a href=""><button id="car4" class="btn btn-success text-black-50" style="background:none"><span class="fa fa-biking setIcon"></span></button></a> Bike</li>
+			      <li><a href=""><button id="car3" class="btn btn-success text-black-50" style="background:none"><span class="fa fa-bicycle setIcon"></span></button></a> Bicycle</li>
+					<li><a href=""><button id="car1" class="btn btn-success text-black-50" style="background:none"><span class="fa fa-car setIcon"></span></button></a> Car</li>	 
+		           <li><a href=""><button id="car2" class="btn btn-success text-black-50" style="background:none"><span class="fa fa-bus-alt setIcon"></span></button></a> Bus</li>	
+								 
+				  <li><a href=""><button id="car6" class="btn btn-success text-black-50" style="background:none"><span class="fa fa-truck setIcon"></span></button></a> Truck</li>				 
+				</ul>
+                   </div>
+
+			</div>		
+<!--					<select id="select" name="threads-icon" class="fa-select"></select>-->
+				</div>
+				<div class="modal-footer">
+<!--					Button that triggers when the user finish with the description and item -->
+					<button type="button" class="btn btn-primary" id="additem" onClick="addItem()">ADD</button>
+				</div>
+			</div>
+		</div>
+	</div>
+		</div>
+	
+	<!--	Modal Box for Items and their  description Ends Here-->
+
+	
+<!--	MOdal for Exit Page Starst here-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:2000" id="exitModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> Are you sure you want to Exit ? </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+     <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal" id="stay">STAY</button>
+        <button type="button" class="btn btn-danger" id="exit">EXIT</button>
+      </div>
+    </div>
+  </div>
+</div>
+	
+	<!--	MOdal for Exit Page Ends here-->
+	
+<!--	Button that triggers the modal for item and their Description-->
+	<button id="add" style="display: none" data-position="fixed" class="btn shadow-sm border rounded-circle float-right m-3 text-white" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span></button>
+</body>
+	<script src="jquery/jquery.min.js"></script>
+         <script src="js/bootstrap.js"></script>
+	<script src="interface.js"></script>
+	
+</html>
