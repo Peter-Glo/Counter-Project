@@ -1,4 +1,4 @@
-<!doctype html>
+<!Doctype html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -9,8 +9,9 @@
 </head>
 	
 <body>
- <nav class="shadow-sm mb-5" style="display: none" id="menuBar">
-		<span id="menu"  c lass="fa fa-align-justify shadow-sm text-white"></span>
+ <nav class="shadow-sm mb-10"  style="display: none" id="menuBar">
+ 	<!-- <img src="image/nav.png" id="menu1"> -->
+		<span id="menu"  class="fa fa-align-justify shadow-sm text-white"></span>
 		<span id="menu1" class="fa fa-align-justify shadow-sm"></span>
 		<span id="arrow" class="fa fa-arrow-left float-right mr-3 shadow-sm text-white" id="backArrow" onclick="backToMainPage()"></span>
 	</nav>
@@ -43,7 +44,7 @@
 					</div>
 				 
 <!--     Car at default Starts here-->
-				 <div id="vehicleDiv" style="width:100%" class="forDel">
+				 <div id="vehicleDiv" style="width:100%; cursor: pointer;" class="forDel">
 <!--
 				
 -->
@@ -52,22 +53,22 @@
 	<div class="input-group-prepend">
     <span class="input-group-text fa fa-car-alt p-3 fa-1x text-white" onmouseup="countMe(event)" id="countNume" data-long-press-delay="2000" style="background: #0F0096 !important"> CAR</span>
   </div>
-  <input type="text" class="form-control p-3 text-white allcounters" type="text" id="inlineCheckbox1" value="0" readonly onmouseup="countMe(event)" id="countNume" data-long-press-delay="2000" style="height: 73px;text-align: center; font-size: 40px;background:#0F0096 !important">
+  <input type="text" class="form-control p-3 text-white allcounters" type="text" id="inlineCheckbox1" value="0" readonly onmouseup="countMe(event)" id="countNume" data-long-press-delay="2000" style="height: 73px;text-align: center; cursor: pointer; font-size: 40px;background:#0F0096 !important">
   <div class="input-group-append">
     <span class="input-group-text fa fa-minus p-3 fa-1x text-white" onClick="subDef2()" style="background:#0F0096 !important"></span>
-	<span class="input-group-text fa fa-trash p-3 fa-1x text-white trsshBin" id='del' style="background:#C60000 !important"></span>
+	<span class="input-group-text fa fa-times p-3 fa-1x text-white trsshBin" id='del' style="background:#C60000 !important"></span>
   </div>
 		 
 </div>
 	
-	<div class="input-group mb-3 rounded mt-5" id="bikeDiv">
+	<div class="input-group mb-3 rounded mt-5" id="bikeDiv" style="cursor: pointer;">
 	<div class="input-group-prepend">
     <span class="input-group-text fa fa-biking p-3 fa-1x text-white" onmouseup="clickTocount(event)" id="countNume" style="background: #0F0096 !important"> BIKE</span>
   </div>
-  <input type="text" class="form-control p-3 text-white allcounters" type="text" id="inlineCheckbox2" value="0" readonly onmouseup="clickTocount(event)" id="countNume" data-long-press-delay="2000" style="height: 73px;text-align: center; font-size: 40px;background:#0F0096 !important">
+  <input type="text" class="form-control p-3 text-white allcounters" type="text" id="inlineCheckbox2" value="0" readonly onmouseup="clickTocount(event)" id="countNume" data-long-press-delay="2000" style="height: 73px;text-align: center; cursor: pointer; font-size: 40px;background:#0F0096 !important">
   <div class="input-group-append">
     <span class="input-group-text fa fa-minus p-3 fa-1x text-white" onClick="subDef()" style="background:#0F0096 !important"></span>
-	  <span class="input-group-text fa fa-trash p-3 fa-1x text-white trsshBin" id='del1' style="background:#C60000 !important"></span>
+	  <span class="input-group-text fa fa-times p-3 fa-1x text-white trsshBin" id='del1' style="background:#C60000 !important"></span>
   </div>
 </div>
       
@@ -84,9 +85,9 @@
 							
  	<div class="input-group mb-3 rounded mt-5" id="carDiv">
 	<div class="input-group-prepend">
-    <span class="input-group-text text-white" onclick="calc()" style="background: #A20817 !important;font-size: 20px"> GET TOTAL</span>
+    <span class="input-group-text text-white" onclick="calc()" style="background: #A20817 !important;font-size: 20px;cursor: pointer"> GET TOTAL</span>
   </div>
-  <input type="text" class="form-control p-3 text-black" type="text" id="showtot" value="0" readonly style="height: 50px;text-align: center; font-size: 40px;background:#fff !important">
+  <input type="text" class="form-control p-3 text-black" type="text" id="showtot" value="0" readonly style="height: 50px;text-align: center; cursor: pointer; font-size: 40px; background:#fff !important">
 					</div>
 				</center>	
 				
@@ -172,11 +173,19 @@
       <th scope="col">CATEGORIES</th>
       <th scope="col">TIME STARTED</th>
       <th scope="col">TIME ENDED</th>
-		<th scope="col">TOTAL</th>
+		<th scope="col" >TOTAL</th>
 <!--		<th scope="col">ACTION</th>-->
     </tr>
   </thead>
 			<tbody id="tbody" style="color:#fff; font-size:20px">
+				<tr>
+					<td>1</td>
+					<td>jj</td>
+					<td>kk</td>
+					<td>dj</td>
+					<td id="timi"></td>
+					
+				</tr>
 			</tbody>
 		</table>			
        </div>
@@ -208,7 +217,7 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text"><span id="car1" class="fa fa-car-alt"></span></span>
 							</div>
-							<input type="text" class="form-control form-control-sm" id="itemList" list="item1" placeholder="Type in your choice of vehicles">
+							<input type="text" class="form-control form-control-sm " id="itemList" list="item1" placeholder="Type in your choice of vehicles">
 							</div>
 <!--						This is where users choose Options for what they want-->
 						<datalist id="item1">

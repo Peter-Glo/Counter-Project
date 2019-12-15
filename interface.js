@@ -147,31 +147,50 @@ addEventListener('click', (event)=>{
 var	timpCap;
 
 count= 1;
-//var ty = [];
+
  function addItem(){
 	 $('#myModal').modal('hide');
 	 
-     all = [];
-	 var c = Math.random();
+    all = [];
+	var c = Math.random();
     var s = Math.floor(c*1000);
     var v = 'ann'+ s;
+    // var p=longpressCls
     var ar = document.getElementsByClassName('allcounters');
     for(var i = 0; i < ar.length;i++){
         all.push(ar[i].value);
     }
+  
+
    var  e = itemList.value;
 	defaltDiv.innerHTML += `<p><div class="input-group mb-3 rounded mt-5" id=`+v+s+`>
 	<div class="input-group-prepend"><span class="input-group-text ${fafa} p-3 fa-1x text-white longpressCls" onmouseup="generalCount(`+s+`)" data-long-press-delay="2000" style="background: #0F0096 !important"> `+e+`
 	</span></div><input type="number" class="form-control p-3 text-white allcounters" id=`+v+` value="0" readonly onmouseup="generalCount(`+s+`)"  data-long-press-delay="2000" style="height:73px; text-align:center; font-size:40px;background:#0F0096 !important">
 	<div class="input-group-append" id=`+v+`><span class="input-group-text fa fa-minus p-3 fa-1x text-white" style="background:#0F0096 !important" onclick="subInp(`+s+`)"></span>
-	<span class="input-group-text fa fa-trash p-3 fa-1x text-white " style="background:#C60000 !important" onclick="generalDel(`+s+`)"></span></div></div></p>`;
+	<span class="input-group-text fa fa-times p-3 fa-1x text-white " style="background:#C60000 !important" onclick="generalDel(`+s+`)"></span></div></div></p>`;
     document.getElementById('defaltDiv').style.display= "block";
+      
     
          for(var i = 0; i < ar.length;i++){
             ar[i].value = all[i];
 		}
-		itemList.value = '';      
-} 
+		itemList.value = ''; 
+		myHistory();     
+}   
+let myHistory=()=>{
+	var myall=[];
+	var item=document.getElementsByClassName("myitem");
+	var historyarray={
+		categories:  item.value,
+		timestart:date_string,
+		timeend: date_string,
+	}
+	myall.push(myHistory);
+	var l=Newcount=JSON.stringify(myall);
+	console.log(historyarray);
+
+
+}
 function clearall(){
     defaltDiv.innerHTML = "";
     showtot.value = "";
@@ -220,14 +239,15 @@ let subDef2 =()=>{
 // default delete buttons
 $(function(){
 	$('#del').on('click',function(){
-		$('carDiv').css('display','none');
+		$('#carDiv').css('display','none');
 	})
 })
 $(function(){
 	$('#del1').on('click',function(){
-		$('bikeDiv').css('display','none');
+		$('#bikeDiv').css('display','none');
 	})
 })
+
 
 
 
