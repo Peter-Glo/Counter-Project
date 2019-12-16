@@ -44,7 +44,7 @@ document.getElementById('menuBar').style.display = "";
 $(function(){
 	$('#aboutButton').on('click',function(){
 		$('#aboutPage').fadeIn(1000);
-		$('#mainPage,#calculatePage').css('display','none');
+		$('#mainPage,#calculatePage,#histPage').css('display','none');
 		$('#aboutPage').css('display','block');
 		 $('#sidebar').hide(200);
 		$('#add').css('display','none');
@@ -214,6 +214,7 @@ function generalDel(c){
    var removeAllll = 'ann' + c+c;
    console.log(removeAllll);
    document.getElementById(removeAllll).style.display = "none";
+
 }
 let subInp = c => {
    var rt = 'ann' + c;
